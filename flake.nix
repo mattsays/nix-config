@@ -18,13 +18,23 @@
 
     mac-app-util.url = "github:hraban/mac-app-util";
 
+    # Visual Studio Code extensions
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+
   };
-  outputs = inputs@{ nixpkgs, home-manager, nix-homebrew, mac-app-util, darwin, ... }: {
+  outputs = inputs@{ 
+    nixpkgs, home-manager, nix-homebrew, nix-vscode-extensions, mac-app-util, darwin, ... }: {
     darwinConfigurations.macos = darwin.lib.darwinSystem {
+      
       system = "aarch64-darwin";
       pkgs = import nixpkgs { system = "aarch64-darwin";  config = { allowUnfree = true; allowBroken = true; allowUnsupportedSystem = true;}; };
       modules = [
         {
+          nixpkgs.overlays = [
+            nix-vscode-extensions.overlays.default
+          ];
+          nixpkgs.config.allowUnfree = true;
           # Necessary for using flakes on this system.
           nix.settings.experimental-features = "nix-command flakes";
         }
@@ -47,6 +57,10 @@
         {
           users.users.mattia.home = "/Users/mattia";
           home-manager = {
+            # Link installed mac apps to the user's home directory
+            sharedModules = [
+                mac-app-util.homeManagerModules.default
+            ];
             backupFileExtension = "bak";
             useGlobalPkgs = true;
             useUserPackages = true;

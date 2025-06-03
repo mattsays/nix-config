@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   # Don't change this when you change package input. Leave it alone.
   home.stateVersion = "25.05";
   
@@ -10,6 +10,7 @@
   
   imports = [
     ./programs/shell.nix
+    ./programs/vscode.nix
   ];
   
   
