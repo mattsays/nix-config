@@ -115,7 +115,8 @@
       dnsflush = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
       
       # Nix commands
-      nix_update = "sudo -E darwin-rebuild switch --flake ~/Documents/nix-config#macos";
+      nixupdate = "sudo -E darwin-rebuild switch --flake ~/Documents/nix-config#macos";
+      nixgc = "nix-collect-garbage";
     };
     
     
