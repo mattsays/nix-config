@@ -19,7 +19,7 @@
     mac-app-util.url = "github:hraban/mac-app-util";
 
     # Visual Studio Code extensions
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/master";
 
 
   };
@@ -28,16 +28,20 @@
     darwinConfigurations.macos = darwin.lib.darwinSystem {
       
       system = "aarch64-darwin";
-      pkgs = import nixpkgs { system = "aarch64-darwin";  config = { allowUnfree = true; allowBroken = true; allowUnsupportedSystem = true;}; };
-      modules = [
-        {
-          nixpkgs.overlays = [
+      pkgs = import nixpkgs { 
+        system = "aarch64-darwin";  
+        config = { 
+          allowUnfree = true; 
+          allowBroken = true; 
+          allowUnsupportedSystem = true;
+        };
+        overlays = [
             nix-vscode-extensions.overlays.default
           ];
-          nixpkgs.config.allowUnfree = true;
-          # Necessary for using flakes on this system.
-          nix.settings.experimental-features = "nix-command flakes";
-        }
+        settings.experimental-features = "nix-command flakes";
+      };
+      
+      modules = [
         ./modules/darwin
         mac-app-util.darwinModules.default
         nix-homebrew.darwinModules.nix-homebrew
