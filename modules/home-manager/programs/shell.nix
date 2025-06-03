@@ -4,6 +4,7 @@
         btop # Resource monitor, similar to htop but with more features
         bat # Bat is a cat clone with syntax highlighting and Git integration
         curl 
+        aria2 # A lightweight multi-protocol & multi-source command-line download utility
         dua # Disk usage analyzer
         jq # Command-line JSON processor
         uv # An extremely fast Python package and project manager, written in Rust.
@@ -19,7 +20,7 @@
         coreutils # GNU core utilities
         neovim # Neovim, a modern text editor
         zellij # A terminal workspace with a focus on usability and extensibility
-        
+        macpm # Also known as 'asitop', a macOS btop
         # Git related tools
         git
         gh # GitHub CLI
@@ -44,6 +45,19 @@
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       historySubstringSearch.enable = true;
+
+      plugins = [
+        {
+          name = "zsh-nix-shell";
+          file = "nix-shell.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "chisui";
+            repo = "zsh-nix-shell";
+            rev = "v0.8.0";
+            sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+          };
+        }
+      ];
     };
     
     programs.starship = {
