@@ -40,6 +40,10 @@
       onActivation.upgrade = true;
       onActivation.autoUpdate = true;
 
+      masApps = {
+          "bitwarden" = 1352778147;
+      };
+
       taps = [];
 
       brews = [
@@ -49,13 +53,13 @@
         no_quarantine = true;
       };
       casks = [
-        "keyclu"
         "ghostty"
         "whatsapp"
         "pearcleaner"
       ];
   };
   
+
   users.users.mattia.shell = pkgs.zsh;
   
   # services.nix-daemon.enable = true;

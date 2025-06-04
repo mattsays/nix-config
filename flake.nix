@@ -31,9 +31,7 @@
       pkgs = import nixpkgs { 
         system = "aarch64-darwin";  
         config = { 
-          allowUnfree = true; 
-          allowBroken = true; 
-          allowUnsupportedSystem = true;
+          allowUnfree = true;
         };
         overlays = [
             nix-vscode-extensions.overlays.default

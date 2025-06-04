@@ -23,8 +23,10 @@
         # Git related tools
         git
         gh # GitHub CLI
+        
         lazygit # Terminal UI for Git commands
         lazydocker # Terminal UI for Docker commands
+        
     ];
   
     home.sessionVariables = {
@@ -114,9 +116,12 @@
       dnslookup = "dscacheutil -q host -a name ";
       dnsflush = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
       
+      nvim = "lvim";
+      vim = "lvim";
+
       # Nix commands
       nixupdate = "sudo -E darwin-rebuild switch --flake ~/Documents/nix-config#macos";
-      nixgc = "nix-collect-garbage";
+      nixgc = "sudo nix-collect-garbage -d";
     };
     
     
