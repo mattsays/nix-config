@@ -64,6 +64,7 @@
           jnoortheen.nix-ide
           ms-vscode-remote.remote-containers
           github.copilot
+          ms-vsliveshare.vsliveshare
       ];
     };
 
