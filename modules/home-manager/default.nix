@@ -9,6 +9,8 @@
   };
   
   imports = [
+    ./programs/misc.nix
+    # ./programs/neovim.nix
     ./programs/shell.nix
     ./programs/vscode.nix
   ];

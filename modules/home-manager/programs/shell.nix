@@ -18,13 +18,13 @@
         eza # A modern replacement for ls, with more features and better defaults
         zoxide # A smarter cd command, like z or autojump
         coreutils # GNU core utilities
-        neovim # Neovim, a modern text editor
         zellij # A terminal workspace with a focus on usability and extensibility
         macpm # Also known as 'asitop', a macOS btop
         # Git related tools
         git
         gh # GitHub CLI
         lazygit # Terminal UI for Git commands
+        lazydocker # Terminal UI for Docker commands
     ];
   
     home.sessionVariables = {

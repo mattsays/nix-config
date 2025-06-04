@@ -39,14 +39,20 @@
       onActivation.cleanup = "zap";
       onActivation.upgrade = true;
       onActivation.autoUpdate = true;
+
       taps = [];
-      brews = [];
+
+      brews = [
+      ];
+
       caskArgs = {
         no_quarantine = true;
       };
       casks = [
         "keyclu"
         "ghostty"
+        "whatsapp"
+        "pearcleaner"
       ];
   };
   
