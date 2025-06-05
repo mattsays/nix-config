@@ -55,6 +55,8 @@
           "nix.enableLanguageServer"= true;
           "nix.serverPath"= "nixd";
 
+          "redhat.telemetry.enabled"= false;
+
       };
       
       extensions = with pkgs.vscode-marketplace; [
@@ -103,7 +105,7 @@
           vscjava.vscode-maven
           vscjava.vscode-java-test
           vscjava.vscode-java-dependency
-          vscjava.vscode-java-pack
+          visualstudioexptteam.vscodeintellicode
         ];
     };
 
