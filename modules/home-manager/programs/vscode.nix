@@ -35,6 +35,10 @@
           # Copilot Settings
           "chat.agent.enabled"= true;
           "github.copilot.nextEditSuggestions.enabled"= true;
+          "github.copilot.enable"= {
+            "plaintext"= true;
+            "markdown"= true;
+          };  
 
           # Misc
           "containers.environment"= {
@@ -58,6 +62,8 @@
           jnoortheen.nix-ide
           ms-vscode-remote.remote-containers
           github.copilot
+          ms-vscode.vscode-websearchforcopilot
+          ms-vscode.vscode-copilot-vision
           ms-vsliveshare.vsliveshare
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -68,7 +74,7 @@
           }
         ];
     };
-    
+
     profiles.cpp = {
       userSettings = config.programs.vscode.profiles.default.userSettings;
       extensions = with pkgs.vscode-marketplace; 
