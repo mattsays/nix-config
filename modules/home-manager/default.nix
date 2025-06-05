@@ -1,4 +1,4 @@
-{ pkgs, nix-vscode-extensions, ... }: {
+{ pkgs, ... }: {
   # Don't change this when you change package input. Leave it alone.
   home.stateVersion = "25.05";
   
