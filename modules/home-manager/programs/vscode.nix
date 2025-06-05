@@ -1,13 +1,10 @@
 { pkgs, config, ... }: {
 
-  home.packages = with pkgs; [
-    vscode
-  ];
-
   programs.vscode = {
     enable = true;
     profiles.default = {
         enableUpdateCheck = false;
+        enableExtensionUpdateCheck = false;
         userSettings = {
           # Disables initial startup
           "workbench.startupEditor"= "none";
@@ -36,11 +33,8 @@
           "explorer.confirmDelete"= false;
 
           # Copilot Settings
-          "github.copilot.editor.enableAutoCompletions"= true;
-          "github.copilot.enable"= {
-              "markdown"= true;
-              "plaintext"= true;
-          };
+          "chat.agent.enabled"= true;
+          "github.copilot.nextEditSuggestions.enabled"= true;
 
           # Misc
           "containers.environment"= {
@@ -65,11 +59,16 @@
           ms-vscode-remote.remote-containers
           github.copilot
           ms-vsliveshare.vsliveshare
-      ];
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "copilot-chat";
+            publisher = "github";
+            version = "0.27.3";
+            sha256 = "b7zvbDzwJcHAp9tn2ibtyeErrH2KNbgqT4Ir7aqLMQg=";
+          }
+        ];
     };
-
-    # CPP Profile
-
+    
     profiles.cpp = {
       userSettings = config.programs.vscode.profiles.default.userSettings;
       extensions = with pkgs.vscode-marketplace; 

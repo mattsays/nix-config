@@ -14,7 +14,7 @@
     ./programs/shell.nix
     ./programs/vscode.nix
   ];
-  
+
   
   # specify my home-manager configs
   home.packages = with pkgs; [
