@@ -2,6 +2,7 @@
 
   programs.vscode = {
     enable = true;
+    mutableExtensionsDir = true;
     profiles.default = {
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
@@ -15,7 +16,8 @@
           "terminal.integrated.fontSize"= 14;
           "workbench.sideBar.location"= "right";
           "workbench.activityBar.location"= "bottom";
-          "editor.cursorSmoothCaretAnimation"= "on";
+          "editor.cursorSmoothCaretAnimation"= true;
+          "editor.cursorBlinking" = "smooth";
           "window.commandCenter"= false;
           "editor.minimap.enabled"= false;
           "terminal.integrated.smoothScrolling"= true;
@@ -62,6 +64,7 @@
       extensions = with pkgs.vscode-marketplace; [
           meta4245.amoledblack
           jnoortheen.nix-ide
+          mkhl.direnv
           ms-vscode-remote.remote-containers
           github.copilot
           ms-vscode.vscode-websearchforcopilot
@@ -77,42 +80,6 @@
         ];
     };
 
-    profiles.cpp = {
-      userSettings = config.programs.vscode.profiles.default.userSettings;
-      extensions = with pkgs.vscode-marketplace; 
-        config.programs.vscode.profiles.default.extensions ++ [
-          ms-vscode.cpptools-extension-pack
-          ms-vscode.makefile-tools
-          ms-vscode.cmake-tools
-          llvm-vs-code-extensions.vscode-clangd
-        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "cpptools";
-            publisher = "ms-vscode";
-            version = "1.25.3";
-            sha256 = "OVj+HEElMGz+KavVk8mvvveiuD1+1RR5uSI97pY0+SM=";
-          }
-        ];
-    };
-
-    profiles.java = {
-      userSettings = config.programs.vscode.profiles.default.userSettings;
-      extensions = with pkgs.vscode-marketplace; 
-        config.programs.vscode.profiles.default.extensions ++ [
-          redhat.java
-          redhat.vscode-xml
-          vscjava.vscode-java-debug
-          vscjava.vscode-maven
-          vscjava.vscode-java-test
-          vscjava.vscode-java-dependency
-          visualstudioexptteam.vscodeintellicode
-        ];
-    };
-
   };
-
-
-
-
 
 }

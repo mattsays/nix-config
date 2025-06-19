@@ -26,6 +26,8 @@
         
         lazygit # Terminal UI for Git commands
         lazydocker # Terminal UI for Docker commands
+
+        pixi  # A Python package manager
         
     ];
   

@@ -42,6 +42,7 @@
 
       masApps = {
           "bitwarden" = 1352778147;
+          "Command X" = 6448461551;
       };
 
       taps = [];
@@ -56,6 +57,7 @@
         "ghostty"
         "whatsapp"
         "pearcleaner"
+        "the-unarchiver"
       ];
   };
   
