@@ -70,14 +70,7 @@
           ms-vscode.vscode-websearchforcopilot
           ms-vscode.vscode-copilot-vision
           ms-vsliveshare.vsliveshare
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "copilot-chat";
-            publisher = "github";
-            version = "0.27.3";
-            sha256 = "b7zvbDzwJcHAp9tn2ibtyeErrH2KNbgqT4Ir7aqLMQg=";
-          }
-        ];
+      ];
     };
 
   };

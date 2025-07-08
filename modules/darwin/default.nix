@@ -2,7 +2,9 @@
   # here go the darwin preferences and config items
   # programs.zsh.enable = true;
 
-  nix.enable = false;
+  nix = {
+    enable = true;
+  };
   
   system.primaryUser = "mattia";
   security.pam.services.sudo_local.touchIdAuth = true;

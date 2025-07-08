@@ -26,8 +26,9 @@
   outputs = inputs@{ 
     nixpkgs, home-manager, nix-homebrew, nix-vscode-extensions, mac-app-util, darwin, ... }: {
     darwinConfigurations.macos = darwin.lib.darwinSystem {
-      
       system = "aarch64-darwin";
+
+
       pkgs = import nixpkgs { 
         system = "aarch64-darwin";  
         config = { 

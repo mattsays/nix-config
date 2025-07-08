@@ -24,7 +24,6 @@
     nixd
     nil
     direnv
-    devenv
     
     # Docker
     docker
@@ -32,8 +31,9 @@
     
     # Java
     jdk23
-      
+    
     home-manager    
   ];
+
   
 }
