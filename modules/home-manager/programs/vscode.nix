@@ -70,6 +70,7 @@
           ms-vscode.vscode-websearchforcopilot
           ms-vscode.vscode-copilot-vision
           ms-vsliveshare.vsliveshare
+          opentofu.vscode-opentofu
       ];
     };
 

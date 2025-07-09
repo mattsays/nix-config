@@ -121,6 +121,8 @@
       nvim = "lvim";
       vim = "lvim";
 
+      rcopy = "rsync -avz --progress";
+
       # Nix commands
       nixupdate = "sudo -E darwin-rebuild switch --flake ~/Documents/nix-config#macos";
       nixgc = "sudo nix-collect-garbage -d";
